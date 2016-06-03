@@ -15,14 +15,14 @@ describe('API', function() {
   describe('Contacts', function() {
     it('GET /contacts should return the of registered contacts', function() {
       return request(api)
-      .get('/contacts')
+      .get('/api/contacts')
       .send()
       .expect(200);
     });
 
     it('GET /contacts/:name should return the of registered contacts with the same name', function() {
       return request(api)
-      .get('/contacts/foo')
+      .get('/api/contacts/foo')
       .send()
       .expect(200)
       .expect(function(res, err) {
@@ -32,7 +32,7 @@ describe('API', function() {
 
     it('POST /contacts should create a new contact', function() {
       return request(api)
-      .post('/contacts')
+      .post('/api/contacts')
       .send({
         contact : {
           name: 'toto'
@@ -43,14 +43,14 @@ describe('API', function() {
 
     it('PUT /contacts/:name should update all contacts with the same name', function(){
       return request(api)
-      .put('/contacts/foo/bar')
+      .put('/api/contacts/foo/bar')
       .send()
       .expect(200);
     });
 
     it('DELETE /contacts/:name should remove all contacts with the same name', function(){
       return request(api)
-      .delete('/contacts/foo')
+      .delete('/api/contacts/foo')
       .send()
       .expect(200);
     });
